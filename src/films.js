@@ -3,20 +3,25 @@ function getAllDirectors(array) {
   let result = array.map(function(movies){
     return movies.director;
   });
-  console.log("Exercici 1->",result);
+  //console.log("Exercici 1->",result);
   return result;
 }
 
 // Exercise 2: Get the films of a certain director
 function getMoviesFromDirector(array, director) {
  let movDirector= array.filter(movies=> movies.director==director);
-console.log("Exceriri 2->",movDirector);
-return movDirector;
+//console.log("Exceriri 2->",movDirector);
+  return movDirector;
 }
 
 // Exercise 3: Calculate the average of the films of a given director.
 function moviesAverageOfDirector(array, director) {
-  
+  let movDirector = array.filter(movies=>movies.director==director);
+  let sumNotas = movDirector.reduce((total, peli)=>(total+peli.score),0);
+  //console.log(sumNotas);
+  let media = (sumNotas/movDirector.length);
+  //console.log(media);
+  return Number(media.toFixed(2));
 }
 
 // Exercise 4:  Alphabetic order by title 
