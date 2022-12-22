@@ -17,16 +17,19 @@ function getMoviesFromDirector(array, director) {
 // Exercise 3: Calculate the average of the films of a given director.
 function moviesAverageOfDirector(array, director) {
   let movDirector = array.filter(movies=>movies.director==director);
-  let sumNotas = movDirector.reduce((total, peli)=>(total+peli.score),0);
-  //console.log(sumNotas);
-  let media = (sumNotas/movDirector.length);
+  let sumNotas = movDirector.reduce((total,peli)=>(total+peli.score),0);
+  let media = sumNotas/movDirector.length;
   //console.log(media);
   return Number(media.toFixed(2));
 }
 
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(array) {
-  
+  let result = array.map(movies=>movies.title);
+  let orden = result.sort();
+  let primeras = orden.slice(0 , 20);
+  //console.log(primeras);
+  return primeras;
 }
 
 // Exercise 5: Order by year, ascending
