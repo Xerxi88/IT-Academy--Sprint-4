@@ -33,7 +33,32 @@ function orderAlphabetically(array) {
 }
 
 // Exercise 5: Order by year, ascending
-function orderByYear() {
+function orderByYear(array) {
+  let newArray= array.slice();
+  let year = newArray.sort((a, b) => {
+    
+    if (a.year < b.year) {
+      return -1;
+    }
+    else if (a.year > b.year) {
+      return 1;
+    }
+    else if (a.title < b.title) {
+      return -1;
+    }
+    else if (a.title > b.title) {
+      return 1;
+    }
+    else{
+      return 0;
+    }
+  })
+  // console.log(year);
+  return year;
+
+  
+
+
 
 }
 
