@@ -60,17 +60,32 @@ function orderByYear(array) {
 
 // Exercise 6: Calculate the average of the movies in a category
 function moviesAverageByCategory(array,category) {
+
   let movCategory = array.filter(movies=>movies.genre==category && movies.score !='');
   return moviesAverageOfDirector(movCategory);
 }
 
 // Exercise 7: Modify the duration of movies to minutes
-function hoursToMinutes() {
-
+function hoursToMinutes(array) {
+  let newArray = JSON.parse(JSON.stringify(array));
+  for (movie of newArray) {
+    movie.duration.split("", 8);
+    if (movie.duration[0] == "0") {
+      movie.duration = Number(movie.duration[3] + movie.duration[4]);
+    } else if (movie.duration[0] != "0" && !isNaN(movie.duration[4])) {
+      movie.duration = Number(movie.duration[0]) * 60 + Number(movie.duration[3] + movie.duration[4]);
+    } else {
+      movie.duration = Number(movie.duration[0]) * 60;
 }
+  }
+  //console.log(newArray);
+  return newArray;
+}
+
 
 // Exercise 8: Get the best film of a year
 function bestFilmOfYear() {
+
   
 }
 
