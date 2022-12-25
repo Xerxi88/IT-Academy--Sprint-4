@@ -97,7 +97,7 @@ function bestFilmOfYear(array, year) {
     }
   });
 
-  let bestMovie = orderArrayByScore.slice(0,1);
+  let bestMovie = orderArrayByScore.slice(0,1);// eliminar esta línea en el caso de querer ejecutar el código comentado.
 
   //console.log(bestMovie);
   return bestMovie; // eliminar esta línea en el caso de querer ejecutar el código comentado.
