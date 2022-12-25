@@ -75,7 +75,7 @@ function hoursToMinutes(array) {
     } else if (movie.duration[0] != "0" && !isNaN(movie.duration[4])) {
       movie.duration = Number(movie.duration[0]) * 60 + Number(movie.duration[3] + movie.duration[4]);
     } else {
-      movie.duration = Number(movie.duration[0]) * 60;
+      movie.duration = Number(movie.duration[0]) * 60 /*+ Number(movie.duration[3])*/;
 }
   }
   //console.log(newArray);
