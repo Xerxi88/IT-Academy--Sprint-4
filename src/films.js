@@ -84,8 +84,44 @@ function hoursToMinutes(array) {
 
 
 // Exercise 8: Get the best film of a year
-function bestFilmOfYear() {
+function bestFilmOfYear(array, year) {
 
+  let arrayByYear = array.filter(movie=>movie.year==year);
+  let orderArrayByScore= arrayByYear.sort((a,b)=>{
+    if(a.score < b.score){
+      return 1;
+    }else if(a.score > b.score){
+      return -1;
+    }else{
+      return 0;
+    }
+  });
+
+  let bestMovie = orderArrayByScore.slice(0,1);
+
+  //console.log(bestMovie);
+  return bestMovie; // eliminar esta línea en el caso de querer ejecutar el código comentado.
+
+  /* Esta parte del código adicional la cree porque me pareció más razonable que en el caso de que hubiese dos o
+    más películas con la nota máxima se mostraran todas y no solo la primera que aparece en la array.
+
+  let arrayFilterByScore = orderArrayByScore.map(movie=>movie.score);
+
+  let contador=0;
+
+    for(let k=0;k < orderArrayByScore.length;k++){
+      if(arrayFilterByScore[k] === arrayFilterByScore[k+1]){
+        contador+=1;
+      }else{
+        contador+=0;
+      }
+    }
+
+    let bestMovies = orderArrayByScore.slice(0,`${contador}`);
+
+    console.log(bestMovies);
+
+    return bestMovies;*/
   
 }
 
