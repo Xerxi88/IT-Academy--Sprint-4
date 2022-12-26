@@ -69,16 +69,21 @@ function moviesAverageByCategory(array,category) {
 function hoursToMinutes(array) {
   let newArray = JSON.parse(JSON.stringify(array));
   for (movie of newArray) {
-    movie.duration.split("", 8);
+    movie.duration.split("", 8);                                         
     if (movie.duration[0] == "0") {
       movie.duration = Number(movie.duration[3] + movie.duration[4]);
-    } else if (movie.duration[0] != "0" && !isNaN(movie.duration[4])) {
+    } 
+    else if (movie.duration[0] != "0" && !isNaN(movie.duration[4])) {
       movie.duration = Number(movie.duration[0]) * 60 + Number(movie.duration[3] + movie.duration[4]);
-    } else {
-      movie.duration = Number(movie.duration[0]) * 60 /*+ Number(movie.duration[3])*/;
+    } 
+    else if(movie.duration[0] != "0" && isNaN(movie.duration[2])){
+      movie.duration = Number(movie.duration[0]) * 60;
+    }
+    else{
+      movie.duration = Number(movie.duration[0]) * 60 + Number(movie.duration[3]);
 }
   }
-  //console.log(newArray);
+  console.log(newArray);
   return newArray;
 }
 
@@ -99,7 +104,7 @@ function bestFilmOfYear(array, year) {
 
   let bestMovie = orderArrayByScore.slice(0,1);// eliminar esta línea en el caso de querer ejecutar el código comentado.
 
-  //console.log(bestMovie);
+  // console.log(bestMovie);
   return bestMovie; // eliminar esta línea en el caso de querer ejecutar el código comentado.
 
   /* Esta parte del código adicional la cree porque me pareció más razonable que en el caso de que hubiese dos o
